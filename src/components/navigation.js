@@ -1,28 +1,19 @@
-import React, { Component } from "react"
+import React from "react"
 
-class Navigation extends Component {
-  render() {
-    return (
-      <div className="primary-nav">
-        Primary navigation
-        <nav>
-          <ul>
+const Navigation = props => {
+  return (
+    <div className="primary-nav">
+      <nav>
+        <ul>
+          {props.navList.map(link => (
             <li>
-              <a href="#" active>
-                Todo List
-              </a>
+              <a href="#">{link}</a>
             </li>
-            <li>
-              <a href="#">Calculator</a>
-            </li>
-            <li>
-              <a href="#">Weather Forecast</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    )
-  }
+          ))}
+        </ul>
+      </nav>
+    </div>
+  )
 }
 
 export default Navigation
