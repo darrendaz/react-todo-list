@@ -36,8 +36,11 @@ class App extends Component {
 
   handleCreateTodoItem(e) {
     e.preventDefault()
+    const todoItem = e.target.todoItem.value
+
     this.setState({
-      itemName: e.target.todoItem.value
+      itemName: todoItem,
+      todoList: [...this.state.todoList, todoItem]
     })
   }
 
