@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import ReactDOM from "react-dom"
 import Navigation from "./components/navigation"
 import TodoForm from "./components/todoForm"
+import TodoList from "./components/todoList"
 
 class App extends Component {
   constructor(props) {
@@ -10,38 +11,43 @@ class App extends Component {
     this.state = {
       greeting: "hey!",
       navList: ["Todo List", "Calculator", "Weather Forecast"],
-      itemName: "something important todo",
+      todoItem: "",
       todoList: []
     }
 
-    this.handleItemNameChange = this.handleItemNameChange.bind(this)
+    this.handleTodoItemNameChange = this.handleTodoItemNameChange.bind(this)
     this.handleCreateTodoItem = this.handleCreateTodoItem.bind(this)
   }
 
   componentDidMount() {
     this.setState({
-      itemName: ""
+      todoItem: ""
     })
   }
 
   componentDidUpdate() {
-    console.log(this.state.itemName)
+    console.log(this.state.todoItem)
   }
 
-  handleItemNameChange(e) {
+  handleTodoItemNameChange(e) {
     this.setState({
-      itemName: e.target.value
+      todoItem: e.target.value
     })
   }
 
   handleCreateTodoItem(e) {
     e.preventDefault()
-    const todoItem = e.target.todoItem.value
+    const todoItemObj = e.target.todoItem.value
 
     this.setState({
-      itemName: todoItem,
-      todoList: [...this.state.todoList, todoItem]
+      todoItem: "",
+      todoList: [...this.state.todoList, todoItemObj]
     })
+  }
+
+  handleClearList(e) {
+    e.preventDefault()
+    console.log("clear list", e)
   }
 
   render() {
@@ -50,10 +56,12 @@ class App extends Component {
         <h1>{this.state.greeting}</h1>
         <Navigation navList={this.state.navList} />
         <TodoForm
-          itemName={this.state.itemName}
-          handleItemNameChange={this.handleItemNameChange}
+          todoItem={this.state.todoItem}
+          handleItemNameChange={this.handleTodoItemNameChange}
           handleCreateTodoItem={this.handleCreateTodoItem}
+          handleClearList={this.handleClearList}
         />
+        <TodoList todoList={this.state.todoList} />
       </div>
     )
   }

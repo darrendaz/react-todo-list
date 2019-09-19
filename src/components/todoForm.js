@@ -8,10 +8,11 @@ const TodoForm = props => (
         id="todoItem"
         placeholder="Starting"
         type="text"
-        value={props.itemName}
-        onChange={e => props.handleItemNameChange(e)}
+        value={props.todoItem}
+        onChange={props.handleItemNameChange}
       />
-      <input type="submit" value="Add Item" />
+      <button type="submit">Add Item</button>
+      <button onClick={props.handleClearList}>Clear List</button>
     </form>
   </div>
 )
