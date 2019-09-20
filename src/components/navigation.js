@@ -5,8 +5,8 @@ const Navigation = props => {
     <div className="primary-nav">
       <nav>
         <ul>
-          {props.navList.map(link => (
-            <li>
+          {props.navList.map((link, index) => (
+            <li key={index}>
               <a href="#">{link}</a>
             </li>
           ))}

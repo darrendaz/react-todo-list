@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       greeting: "hey!",
       navList: ["Todo List", "Calculator", "Weather Forecast"],
+      todoItemIdCounter: 0,
       todoItem: "",
       todoList: []
     }
@@ -37,10 +38,15 @@ class App extends Component {
 
   handleCreateTodoItem(e) {
     e.preventDefault()
-    const todoItemObj = e.target.todoItem.value
+    const todoItemId = this.state.todoItemIdCounter + 1
+    const todoItemObj = {
+      id: todoItemId,
+      name: e.target.todoItem.value
+    }
 
     this.setState({
       todoItem: "",
+      todoItemIdCounter: todoItemId,
       todoList: [...this.state.todoList, todoItemObj]
     })
   }

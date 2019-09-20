@@ -15,7 +15,7 @@ export default class TodoList extends Component {
           : `${this.props.todoList.length} things to do`}
         <ol>
           {this.props.todoList.map(todoItem => (
-            <TodoListItem todoItem={todoItem} />
+            <TodoListItem key={todoItem.id} todoItem={todoItem} />
           ))}
         </ol>
       </div>
