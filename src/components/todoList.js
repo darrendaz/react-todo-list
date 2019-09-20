@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import TodoListItem from "./todoListItem"
+// import TodoListItem from "./todoListItem"
 
 export default class TodoList extends Component {
   constructor(props) {
@@ -15,21 +15,21 @@ export default class TodoList extends Component {
           ? `${todoList.length} thing to do`
           : `${todoList.length} things to do`}
         <table>
-          {todoList.map(todoItem => (
-            <tr>
-              <td>
-                <TodoListItem
-                  key={todoItem.id}
-                  todoItemId={todoItem.id}
-                  todoItemName={todoItem.name}
-                  delete={handleDelete}
-                />
-              </td>
-              <td>
-                <button>Delete</button>
-              </td>
-            </tr>
-          ))}
+          <tbody>
+            {todoList.map(todoItem => (
+              <tr key={todoItem.id}>
+                <td>{todoItem.name}</td>
+                <td>
+                  <button
+                    value={todoItem.id}
+                    onClick={handleDelete.bind(this, todoItem.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     )
