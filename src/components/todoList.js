@@ -8,16 +8,29 @@ export default class TodoList extends Component {
   }
 
   render() {
+    const { todoList, handleDelete } = this.props
     return (
       <div>
-        {this.props.todoList.length === 1
-          ? `${this.props.todoList.length} thing to do`
-          : `${this.props.todoList.length} things to do`}
-        <ol>
-          {this.props.todoList.map(todoItem => (
-            <TodoListItem key={todoItem.id} todoItem={todoItem} />
+        {todoList.length === 1
+          ? `${todoList.length} thing to do`
+          : `${todoList.length} things to do`}
+        <table>
+          {todoList.map(todoItem => (
+            <tr>
+              <td>
+                <TodoListItem
+                  key={todoItem.id}
+                  todoItemId={todoItem.id}
+                  todoItemName={todoItem.name}
+                  delete={handleDelete}
+                />
+              </td>
+              <td>
+                <button>Delete</button>
+              </td>
+            </tr>
           ))}
-        </ol>
+        </table>
       </div>
     )
   }

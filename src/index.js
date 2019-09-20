@@ -51,6 +51,16 @@ class App extends Component {
     })
   }
 
+  handleDeleteTodoItem(id) {
+    const deleteItemId = id
+
+    this.setState(prevState => ({
+      todoList: prevState.todoList.filter(
+        todoItem => todoItem.id !== deleteItemId
+      )
+    }))
+  }
+
   handleClearList(e) {
     e.preventDefault()
     console.log("clear list", e)
@@ -67,7 +77,10 @@ class App extends Component {
           handleCreateTodoItem={this.handleCreateTodoItem}
           handleClearList={this.handleClearList}
         />
-        <TodoList todoList={this.state.todoList} />
+        <TodoList
+          todoList={this.state.todoList}
+          handleDelete={this.handleDeleteTodoItem.bind(this)}
+        />
       </div>
     )
   }
