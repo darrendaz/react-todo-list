@@ -1,26 +1,84 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react"
+import Navigation from "./components/navigation"
+import TodoForm from "./components/todoForm"
+import TodoList from "./components/todoList"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      greeting: "hey!",
+      navList: ["Todo List", "Calculator", "Weather Forecast"],
+      todoItemIdCounter: 0,
+      todoItem: "",
+      todoList: []
+    }
+
+    this.handleTodoItemNameChange = this.handleTodoItemNameChange.bind(this)
+    this.handleCreateTodoItem = this.handleCreateTodoItem.bind(this)
+  }
+
+  componentDidMount() {
+    this.setState({
+      todoItem: ""
+    })
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.todoItem)
+  }
+
+  handleTodoItemNameChange(e) {
+    this.setState({
+      todoItem: e.target.value
+    })
+  }
+
+  handleCreateTodoItem(e) {
+    e.preventDefault()
+    const todoItemId = this.state.todoItemIdCounter + 1
+    const todoItemObj = {
+      id: todoItemId,
+      name: e.target.todoItem.value
+    }
+
+    this.setState({
+      todoItem: "",
+      todoItemIdCounter: todoItemId,
+      todoList: [...this.state.todoList, todoItemObj]
+    })
+  }
+
+  handleDeleteTodoItem(id) {
+    this.setState(prevState => ({
+      todoList: prevState.todoList.filter(todoItem => todoItem.id !== id)
+    }))
+  }
+
+  handleClearList(e) {
+    e.preventDefault()
+    console.log("clear list", e)
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>{this.state.greeting}</h1>
+        <Navigation navList={this.state.navList} />
+        <TodoForm
+          todoItem={this.state.todoItem}
+          handleItemNameChange={this.handleTodoItemNameChange}
+          handleCreateTodoItem={this.handleCreateTodoItem}
+          handleClearList={this.handleClearList}
+        />
+        <TodoList
+          todoList={this.state.todoList}
+          handleDelete={this.handleDeleteTodoItem.bind(this)}
+        />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
