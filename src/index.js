@@ -52,12 +52,8 @@ class App extends Component {
   }
 
   handleDeleteTodoItem(id) {
-    const deleteItemId = id
-
     this.setState(prevState => ({
-      todoList: prevState.todoList.filter(
-        todoItem => todoItem.id !== deleteItemId
-      )
+      todoList: prevState.todoList.filter(todoItem => todoItem.id !== id)
     }))
   }
 
