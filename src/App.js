@@ -56,6 +56,8 @@ class App extends Component {
     }))
   }
 
+  handleComplete(id) {}
+
   handleClearList(e) {
     e.preventDefault()
     console.log("clear list", e)
