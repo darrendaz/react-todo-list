@@ -1,5 +1,4 @@
-import React, { Component } from "react"
-// import TodoListItem from "./todoListItem"
+import React from "react"
 
 const TodoList = props => {
   const { todoList, handleDelete } = props
