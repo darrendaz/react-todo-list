@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Navigation from "./components/navigation"
+// import Navigation from "./components/navigation"
 import TodoForm from "./components/todoForm"
 import TodoList from "./components/todoList"
 
@@ -79,7 +79,7 @@ class App extends Component {
     return (
       <div>
         <h1>{this.state.greeting}</h1>
-        <Navigation navList={this.state.navList} />
+        {/* <Navigation navList={this.state.navList} /> */}
         <TodoForm
           todoItem={this.state.todoItem}
           handleItemNameChange={this.handleTodoItemNameChange}

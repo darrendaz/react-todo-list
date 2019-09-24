@@ -1,19 +1,16 @@
-import React from "react"
+// import React from "react"
 
-const Navigation = props => {
-  return (
-    <div className="primary-nav">
-      <nav>
-        <ul>
-          {props.navList.map((link, index) => (
-            <li key={index}>
-              <a href="#">{link}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </div>
-  )
-}
+// const Navigation = props => {
+//   return (
+//     <div className="primary-nav">
+//       <nav>
+//         <Link to="/">Home</Link>
+//       </nav>
+//       <Router>
+//         <TodoForm path="/" />
+//       </Router>
+//     </div>
+//   )
+// }
 
-export default Navigation
+// export default Navigation
