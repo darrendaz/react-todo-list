@@ -26,10 +26,6 @@ class App extends Component {
     })
   }
 
-  componentDidUpdate() {
-    console.log(this.state.todoItem)
-  }
-
   handleTodoItemNameChange(e) {
     this.setState({
       todoItem: e.target.value
@@ -41,7 +37,8 @@ class App extends Component {
     const todoItemId = this.state.todoItemIdCounter + 1
     const todoItemObj = {
       id: todoItemId,
-      name: e.target.todoItem.value
+      name: e.target.todoItem.value,
+      completed: false
     }
 
     this.setState({
@@ -58,7 +55,11 @@ class App extends Component {
   }
 
   handleComplete(id) {
-    console.log(`Completed item id: ${id}`)
+    const todoList = this.state.todoList
+    const itemIndex = todoList.findIndex(todoItem => todoItem.id === id)
+    const todoItemObj = todoList[itemIndex]
+    todoList[itemIndex] = { ...todoItemObj, completed: !todoItemObj.completed }
+    this.setState({ todoList: todoList })
   }
 
   handleClearList(e) {

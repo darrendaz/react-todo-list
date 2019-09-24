@@ -25,7 +25,7 @@ const TodoList = props => {
                   value={todoItem.id}
                   onClick={handleComplete.bind(this, todoItem.id)}
                 >
-                  Complete
+                  {todoItem.completed ? `Completed` : `Complete`}
                 </button>
               </td>
             </tr>
