@@ -34,7 +34,9 @@ class App extends Component {
 
   handleCreateTodoItem(e) {
     e.preventDefault()
+
     const todoItemId = this.state.todoItemIdCounter + 1
+
     const todoItemObj = {
       id: todoItemId,
       name: e.target.todoItem.value,
@@ -54,16 +56,19 @@ class App extends Component {
     }))
   }
 
-  handleComplete(id) {
+  toggleComplete(id) {
     const todoList = this.state.todoList
     const itemIndex = todoList.findIndex(todoItem => todoItem.id === id)
     const todoItemObj = todoList[itemIndex]
+
     todoList[itemIndex] = { ...todoItemObj, completed: !todoItemObj.completed }
+
     this.setState({ todoList: todoList })
   }
 
   handleClearList(e) {
     e.preventDefault()
+
     this.setState({
       todoItemIdCounter: 0,
       todoList: []
@@ -84,7 +89,7 @@ class App extends Component {
         <TodoList
           todoList={this.state.todoList}
           handleDeleteTodoItem={this.handleDeleteTodoItem.bind(this)}
-          handleComplete={this.handleComplete.bind(this)}
+          toggleComplete={this.toggleComplete.bind(this)}
         />
       </div>
     )

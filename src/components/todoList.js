@@ -1,7 +1,7 @@
 import React from "react"
 
 const TodoList = props => {
-  const { todoList, handleDeleteTodoItem, handleComplete } = props
+  const { todoList, handleDeleteTodoItem, toggleComplete } = props
   return (
     <div>
       {todoList.length === 1
@@ -23,7 +23,7 @@ const TodoList = props => {
               <td>
                 <button
                   value={todoItem.id}
-                  onClick={handleComplete.bind(this, todoItem.id)}
+                  onClick={toggleComplete.bind(this, todoItem.id)}
                 >
                   {todoItem.completed ? `Completed` : `Complete`}
                 </button>
