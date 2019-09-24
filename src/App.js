@@ -57,9 +57,9 @@ class App extends Component {
     }))
   }
 
-  // handleComplete(id) {
-  //   console.log()
-  // }
+  handleComplete(id) {
+    console.log(`Completed item id: ${id}`)
+  }
 
   handleClearList(e) {
     e.preventDefault()
@@ -82,7 +82,8 @@ class App extends Component {
         />
         <TodoList
           todoList={this.state.todoList}
-          handleDelete={this.handleDeleteTodoItem.bind(this)}
+          handleDeleteTodoItem={this.handleDeleteTodoItem.bind(this)}
+          handleComplete={this.handleComplete.bind(this)}
         />
       </div>
     )

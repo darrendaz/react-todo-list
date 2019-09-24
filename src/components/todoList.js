@@ -1,7 +1,7 @@
 import React from "react"
 
 const TodoList = props => {
-  const { todoList, handleDelete, handleComplete } = props
+  const { todoList, handleDeleteTodoItem, handleComplete } = props
   return (
     <div>
       {todoList.length === 1
@@ -15,19 +15,19 @@ const TodoList = props => {
               <td>
                 <button
                   value={todoItem.id}
-                  onClick={handleDelete.bind(this, todoItem.id)}
+                  onClick={handleDeleteTodoItem.bind(this, todoItem.id)}
                 >
                   Delete
                 </button>
               </td>
-              {/* <td>
+              <td>
                 <button
                   value={todoItem.id}
                   onClick={handleComplete.bind(this, todoItem.id)}
                 >
                   Complete
                 </button>
-              </td> */}
+              </td>
             </tr>
           ))}
         </tbody>
