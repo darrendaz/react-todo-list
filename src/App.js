@@ -17,6 +17,7 @@ class App extends Component {
 
     this.handleTodoItemNameChange = this.handleTodoItemNameChange.bind(this)
     this.handleCreateTodoItem = this.handleCreateTodoItem.bind(this)
+    this.handleClearList = this.handleClearList.bind(this)
   }
 
   componentDidMount() {
@@ -56,11 +57,16 @@ class App extends Component {
     }))
   }
 
-  handleComplete(id) {}
+  // handleComplete(id) {
+  //   console.log()
+  // }
 
   handleClearList(e) {
     e.preventDefault()
-    console.log("clear list", e)
+    this.setState({
+      todoItemIdCounter: 0,
+      todoList: []
+    })
   }
 
   render() {
