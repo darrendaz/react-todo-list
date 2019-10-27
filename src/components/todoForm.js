@@ -4,8 +4,8 @@ const TodoForm = props => (
   <div>
     <form className="form-group" onSubmit={props.handleCreateTodoItem}>
       <div className="form-row">
-        <label className="col-sm-1 col-form-label" htmlFor="todoItem">
-          Todo{" "}
+        <label className="col-2 col-form-label" htmlFor="todoItem">
+          Add to your list
         </label>
       </div>
       <div className="form-row">
@@ -13,7 +13,7 @@ const TodoForm = props => (
           type="text"
           className="form-control col-4"
           id="todoItem"
-          placeholder="Starting"
+          placeholder="ex. grind coffee, submit PR, buy chocolate, repeat, etc."
           value={props.todoItem}
           onChange={props.handleItemNameChange}
         />

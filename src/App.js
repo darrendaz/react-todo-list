@@ -8,7 +8,7 @@ class App extends Component {
     super(props)
 
     this.state = {
-      greeting: "hey!",
+      greeting: "To Do List",
       navList: ["Todo List", "Calculator", "Weather Forecast"],
       todoItemIdCounter: 0,
       todoItem: "",
@@ -31,6 +31,14 @@ class App extends Component {
       todoItem: e.target.value
     })
   }
+
+  // handleListItemNameChange(e) {
+  //   let r = this.state.todoList.filter(listItem => listItem.id === e.target.id)
+  //   r.name = e.value
+  //   this.setState({
+  //     todoList: [...this.state.todoList, r]
+  //   })
+  // }
 
   handleCreateTodoItem(e) {
     e.preventDefault()
@@ -88,6 +96,8 @@ class App extends Component {
         />
         <TodoList
           todoList={this.state.todoList}
+          // handleListItemNameChange={this.handleListItemNameChange}
+          handleItemNameChange={this.handleTodoItemNameChange}
           handleDeleteTodoItem={this.handleDeleteTodoItem.bind(this)}
           toggleComplete={this.toggleComplete.bind(this)}
         />
