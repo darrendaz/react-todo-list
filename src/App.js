@@ -77,7 +77,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <h1>{this.state.greeting}</h1>
         {/* <Navigation navList={this.state.navList} /> */}
         <TodoForm
