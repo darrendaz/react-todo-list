@@ -3,27 +3,28 @@ import React from "react"
 const TodoList = props => {
   const {
     todoList,
-    // handleListItemNameChange,
+    handleListItemNameChange,
     handleDeleteTodoItem,
     toggleComplete
   } = props
 
-  const remainingList = todoList.filter(
+  const remainingCount = todoList.filter(
     listItem => listItem.completed === false
-  )
-  const doneList = todoList.filter(listItem => listItem.completed === true)
+  ).length
+  const doneCount = todoList.filter(listItem => listItem.completed === true)
+    .length
 
   return (
     <div className="todolist-group">
       <div className="row container-fluid">
         <div className="row col-3">
-          {doneList === 1
-            ? `${doneList.length} thing done`
-            : `${doneList.length} things done`}{" "}
+          {doneCount === 1
+            ? `${doneCount} thing done`
+            : `${doneCount} things done`}{" "}
           /{" "}
-          {remainingList.length === 1
-            ? `${remainingList.length} thing to do`
-            : `${remainingList.length} things to do`}
+          {remainingCount === 1
+            ? `${remainingCount} thing to do`
+            : `${remainingCount} things to do`}
         </div>
       </div>
       {todoList.map(todoItem => (
@@ -33,7 +34,7 @@ const TodoList = props => {
             className="form-control col-6"
             id={todoItem.id}
             value={todoItem.name}
-            // onChange={handleListItemNameChange}
+            onChange={handleListItemNameChange.bind(this, todoItem.id)}
           />
           <button
             type="button"
@@ -45,7 +46,7 @@ const TodoList = props => {
             value={todoItem.id}
             onClick={toggleComplete.bind(this, todoItem.id)}
           >
-            {todoItem.completed ? `Completed` : `Complete`}
+            {todoItem.completed ? `Completed` : `Complete Task`}
           </button>
           <button
             type="button"

@@ -32,13 +32,9 @@ class App extends Component {
     })
   }
 
-  // handleListItemNameChange(e) {
-  //   let r = this.state.todoList.filter(listItem => listItem.id === e.target.id)
-  //   r.name = e.value
-  //   this.setState({
-  //     todoList: [...this.state.todoList, r]
-  //   })
-  // }
+  handleListItemNameChange(id) {
+    console.log("listitem name change", id)
+  }
 
   handleCreateTodoItem(e) {
     e.preventDefault()
@@ -96,7 +92,7 @@ class App extends Component {
         />
         <TodoList
           todoList={this.state.todoList}
-          // handleListItemNameChange={this.handleListItemNameChange}
+          handleListItemNameChange={this.handleListItemNameChange.bind(this)}
           handleItemNameChange={this.handleTodoItemNameChange}
           handleDeleteTodoItem={this.handleDeleteTodoItem.bind(this)}
           toggleComplete={this.toggleComplete.bind(this)}
