@@ -1,7 +1,7 @@
 import React from "react"
 
 const TodoForm = props => (
-  <div>
+  <div className="container-fluid">
     <form className="form-group" onSubmit={props.handleCreateTodoItem}>
       <div className="form-row">
         <label className="col-2 col-form-label" htmlFor="todoItem">

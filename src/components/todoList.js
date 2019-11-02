@@ -15,9 +15,9 @@ const TodoList = props => {
     .length
 
   return (
-    <div className="todolist-group">
+    <div className="todolist-group container-fluid">
       <div className="row container-fluid">
-        <div className="row col-3">
+        <div className="row container-fluid">
           {doneCount === 1
             ? `${doneCount} thing done`
             : `${doneCount} things done`}{" "}
@@ -34,7 +34,7 @@ const TodoList = props => {
             className="form-control col-6"
             id={todoItem.id}
             value={todoItem.name}
-            onChange={handleListItemNameChange.bind(this, todoItem.id)}
+            onChange={handleListItemNameChange.bind(this)}
           />
           <button
             type="button"

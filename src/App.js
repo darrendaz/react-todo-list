@@ -32,8 +32,14 @@ class App extends Component {
     })
   }
 
-  handleListItemNameChange(id) {
-    console.log("listitem name change", id)
+  handleListItemNameChange(e) {
+    const todoList = this.state.todoList
+    todoList[e.target.id - 1].name = e.target.value
+
+    console.log("todoList: ", todoList)
+    this.setState({
+      todoList: todoList
+    })
   }
 
   handleCreateTodoItem(e) {
@@ -43,7 +49,7 @@ class App extends Component {
 
     const todoItemObj = {
       id: todoItemId,
-      name: e.target.todoItem.value,
+      name: e.target.todoItem.value || "__error__",
       completed: false
     }
 
