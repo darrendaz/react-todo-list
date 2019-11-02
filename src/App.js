@@ -49,7 +49,7 @@ class App extends Component {
 
     const todoItemObj = {
       id: todoItemId,
-      name: e.target.todoItem.value || "__error__",
+      name: e.target.todoItem.value || "<_empty_entry_>",
       completed: false
     }
 
