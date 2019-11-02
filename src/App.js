@@ -36,7 +36,6 @@ class App extends Component {
     const todoList = this.state.todoList
     todoList[e.target.id - 1].name = e.target.value
 
-    console.log("todoList: ", todoList)
     this.setState({
       todoList: todoList
     })
