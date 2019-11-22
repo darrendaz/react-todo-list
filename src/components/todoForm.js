@@ -1,8 +1,13 @@
 import React from "react"
 
-const TodoForm = props => (
+const TodoForm = ({
+  handleCreateTodoItem,
+  todoItem,
+  handleItemNameChange,
+  handleClearList
+}) => (
   <div className="container-fluid">
-    <form className="form-group" onSubmit={props.handleCreateTodoItem}>
+    <form className="form-group" onSubmit={handleCreateTodoItem}>
       <div className="form-row">
         <label className="col-2 col-form-label" htmlFor="todoItem">
           Add to your list
@@ -14,8 +19,8 @@ const TodoForm = props => (
           className="form-control col-4"
           id="todoItem"
           placeholder="ex. grind coffee, submit PR, buy chocolate, repeat, etc."
-          value={props.todoItem}
-          onChange={props.handleItemNameChange}
+          value={todoItem}
+          onChange={handleItemNameChange}
         />
         <button type="submit" className="btn btn-primary">
           Add Item
@@ -23,7 +28,7 @@ const TodoForm = props => (
         <button
           type="button"
           className="btn btn-secondary"
-          onClick={props.handleClearList}
+          onClick={handleClearList}
         >
           Clear List
         </button>

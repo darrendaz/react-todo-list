@@ -27,6 +27,8 @@ class App extends Component {
   }
 
   handleTodoItemNameChange(e) {
+    localStorage.setItem("Testing", e.target.value)
+
     this.setState({
       todoItem: e.target.value
     })
