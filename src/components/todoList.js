@@ -1,13 +1,11 @@
 import React from "react"
 
-const TodoList = props => {
-  const {
-    todoList,
-    handleListItemNameChange,
-    handleDeleteTodoItem,
-    toggleComplete
-  } = props
-
+const TodoList = ({
+  todoList,
+  handleListItemNameChange,
+  handleDeleteTodoItem,
+  toggleComplete
+}) => {
   const remainingCount = todoList.filter(
     listItem => listItem.completed === false
   ).length
