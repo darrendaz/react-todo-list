@@ -1,13 +1,13 @@
 {
-  "name": "experiment-todo",
+  "name": "react-todo-list",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.9.0",
-    "react-dev-utils": "^9.1.0",
+    "react-dev-utils": "^3.0.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-scripts": "^5.0.1",
     "yarn": "^1.22.19"
   },
   "scripts": {
@@ -36,5 +36,5 @@
   "devDependencies": {
     "gh-pages": "^2.1.1"
   },
-  "homepage": "https://darrendaz.github.io/experiment-todo"
+  "homepage": "https://darrendaz.github.io/react-todo-list"
 }
